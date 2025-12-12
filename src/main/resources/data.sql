@@ -15,8 +15,8 @@ VALUES
 -- CUSTOMERS
 INSERT INTO CUSTOMERS (FIRST_NAME, LAST_NAME, EMAIL, PHONE, CITY, STATE, ZIP_CODE)
 VALUES
-('Rahul', 'Patil', 'rahul.patil@test.com', '8881112222', 'Pune', 'MH', '411002'),
-('Sneha', 'Kulkarni', 'sneha.k@test.com', '8883334444', 'Nashik', 'MH', '422001');
+('Runay', 'Dhaygude', 'runay.dhaygude@test.com', '8881112222', 'Pune', 'MH', '411002'),
+('Ramdas', 'Dhaygude', 'ramdas.d@test.com', '8883334444', 'Nashik', 'MH', '422001');
 
 -- ORDERS
 INSERT INTO ORDERS (ORDER_ID, CUSTOMER_ID, SALESPERSON_ID)
