@@ -65,7 +65,79 @@ If the query is successful, the server will return a response similar to:
 }
 ```
 
-## Notes
 
-- Ensure the GraphQL server is running and accessible at `http://localhost:8080/graphql`.
-- Replace the `email` variable in the `curl` command with the desired email address to fetch specific customer details.
+### Mutation Example
+
+The following GraphQL mutation allows you to add a new customer using the `CustomerInput` type:
+
+#### Mutation
+```graphql
+mutation {
+    addCustomer(input: {
+        firstName: "John",
+        lastName: "Doe",
+        email: "john.doe@example.com",
+        phone: "9876543210",
+        address: "123 Main St",
+        city: "Springfield",
+        state: "IL",
+        zipCode: "62704"
+    }) {
+        id
+        firstName
+        lastName
+        email
+        phone
+        address
+        city
+        state
+        zipCode
+    }
+}
+```
+
+#### Example Request
+
+Use the following `curl` command to execute the mutation:
+
+```bash
+curl -X POST http://localhost:8080/graphql \
+-H "Content-Type: application/json" \
+-d '{
+  "query": "mutation($input: CustomerInput!) { addCustomer(input: $input) { id firstName lastName email phone address city state zipCode } }",
+  "variables": {
+    "input": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "phone": "9876543210",
+      "address": "123 Main St",
+      "city": "Springfield",
+      "state": "IL",
+      "zipCode": "62704"
+    }
+  }
+}'
+```
+
+#### Response Example
+
+If the mutation is successful, the server will return a response similar to:
+
+```json
+{
+  "data": {
+    "addCustomer": {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "phone": "9876543210",
+      "address": "123 Main St",
+      "city": "Springfield",
+      "state": "IL",
+      "zipCode": "62704"
+    }
+  }
+}
+```
